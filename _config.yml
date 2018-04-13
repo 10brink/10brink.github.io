@@ -1,0 +1,38 @@
+# Permalinks
+permalink:           pretty
+
+# Setup
+title:               Nick TenBrink
+tagline:             New Adventures in Data Science 
+url:                 http://twitter.com/nick10bk
+paginate:            2
+baseurl:             ""
+
+# Assets
+#
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  sass_dir:          _sass
+  style:            :compressed
+
+# About/contact
+author:
+  name:              Nick TenBrink
+  url:               https://twitter.com/nick10bk
+  email:             tennyrunner@gmail.com
+
+# Custom vars
+version:             2.0.0
+github:
+  repo:              https://github.com/10brink
+
+# Gems
+gems:
+  - jekyll-paginate
+  - jekyll-gist
+
+# Page List
+pages_list:       
+  About: '/about'
+  Archive: '/archive'
+  Feed: '/index.html'
