@@ -4,11 +4,11 @@ title: Metis Bootcamp
 ---
 
 
-Hi, I'm Nick, an aspiring data scientist, welcome to my blog! I'm currently attending the Metis data science bootcamp in Chicago. I've already learned a lot! In the first week, we downloaded, cleaned and analyzed NYC subway data to see what patterns can be found in the data. 
+Hi, I'm Nick, an aspiring data scientist, and I will be blogging about my experience at the Metis data science bootcamp in Chicago. In the first week, we downloaded, cleaned and analyzed NYC subway data to see what patterns can be found in the data. 
 
-NYC has made the turnstile data publicly available on the [MTA website](http://web.mta.info/developers/turnstile.html). Unfortunately, the data is not exactly clean or user friendly, can see it is in a txt csv (comma seperated values) file. We quickly learned that a large part of data science work is making sure that the data is clean and in a usable format. I will show you how I did this using python and pandas. Pandas (from the term panel data) is a library for python that provides data structures and makes working with relational data easy. 
+NYC has made the turnstile data publicly available on the [MTA website](http://web.mta.info/developers/turnstile.html). Unfortunately, the data is not exactly clean or user friendly, you can see it is in a .txt csv (comma seperated values) file. We quickly learned that a large part of data science work is making sure that the data is clean and in a usable format. I will show you how I did this using python and pandas. Pandas (from the term panel data) is a library for python that provides data structures and makes working with relational data easy. 
 
-###Importing data from the web
+### Importing data from the web
 
 First we need to import the data into a pandas dataframe. My partner and wrote this function that takes the date (mm/dd/yyyy) and the number of weeks and returns a data frame:
 
@@ -28,13 +28,13 @@ def combine_mta_data(start_date, number):
     return df
   ```
     
-run the function with your desired start date and number of weeks, I used April 22 2017 and four weeks.  
+Run the function with your desired start date and number of weeks, I used April 22 2017 and four weeks.  
 ```python
 start_date = '04/22/2017' 
 df = combine_mta_data(start_date, 4)
 ```
 
-###Cleaning the data
+### Cleaning the data
 
 If you look at the columns in the data frame (using `df.columns`), you'll notice that one of them has a lot of spaces in the name. We can easily remove this using the python function `.strip()`. while we're at it, let's remove any duplicate entries.
 ```python
@@ -53,4 +53,57 @@ weekdays = ['MON','TUE','WED','THU','FRI','SAT','SUN']
 df['DOF'] = [weekdays[dt.datetime.strptime(dstring,'%m/%d/%Y').weekday()] for dstring in df.DATE.tolist()]
 # DOF = "day of week"
 ```
+Another thing I noticed when scrolling through the data is that, while the data is usually reported in four-hour intervals, when those occur is not always uniform, and some turnstiles were reporting much more frequently. To solve this, we create another column with "bins" to put each row into, in four hour intervals. Thanks to [Lauren Oldja](http://laurenoldja.net/blog/open-data/mta-data-cleaning) for this idea. 
+
+```python
+bins = [-1, 4, 8, 12, 16, 20, 24]
+df ['HOUR'] = [r.hour for r in df.TIMESTAMP] #hour of day
+df['hourbin'] = pd.cut(df['HOUR'], bins)
+
+```
+
+We also recognized that numbers of entries in exits were cumulative counts, since we can see that they are in the millions and keep increasing. To get the counts for each interval, we can use the pandas function `.diff()`.
+
+For this we wrote another function, find_deltas, that creates two new columns from the differences in the entries and exits columns. Later we found that some of the turnstiles were counting down, and some reset to 0 at seemingly random times. To account for this we used the absolute value of the difference, and any values that were abnormally large we reset to 0 (since this is counting each individual turnstile, it is unlikely that one turnstile would have more than 10000 entries in four hours). We also set the value to 0 anytime the turnstile changed in the dataframe --taking the difference in values between two different turnstiles doesn't make sense.
+
+
+```python
+def find_deltas(df):
+    #creates two new columns, from the difference on the entries and exits column
+    df['delta_entry']=abs(df.ENTRIES.diff())
+    df['delta_exit']=abs(df.EXITS.diff())
+  
+    for i in range(0,df.index.max()) :
+        #if (df.iloc[i,6]==start_date) & (df.iloc[i,7]== '00:00:00'):
+        if (df.iloc[i, 2] != df.iloc[i-1,2] )| (i ==0) :
+            df.loc[i, 'delta_entry']=0
+            df.loc[i, 'delta_exit']=0
+        if ( df.loc[i, 'delta_exit'] >10000) :
+            df.loc[i, 'delta_exit']=0     
+           
+        if  df.loc[i, 'delta_entry'] >10000:
+            df.loc[i, 'delta_entry']=0
+            
+find_deltas(df)
+```
+One more thing, let's add the entry and exit counts to get the total traffic:
+
+```python
+df['TRAFFIC']= df['delta_entry']+df['delta_exit']
+```
+
+Now that the tedius work of cleaning and managing the data is done, let's see what the five busiest stations were by total traffic:
+
+```python
+df.groupby(['STATION'])[ 'TRAFFIC'].sum().nlargest(5)
+```
+
+| STATION        | TRAFFIC   |
+| ------------- | ------: |
+| 34 ST-PENN STA | 7500052|
+| GRD CNTRL-42 ST| 6793625|   
+| 34 ST-HERALD SQ | 5960562   |   
+| 23 ST    | 5299998 |
+| 14 ST-UNION SQ    | 5030327|   
+
 
