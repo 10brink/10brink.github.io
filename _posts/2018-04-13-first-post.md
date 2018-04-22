@@ -96,6 +96,7 @@ Now that the tedius work of cleaning and managing the data is done, let's see wh
 ```python
 df.groupby(['STATION'])[ 'TRAFFIC'].sum().nlargest(5)
 ```
+this code groups the rows by station, takes the sum of the traffic for every row, and shows us the five largest.
 
 | STATION  | TRAFFIC   |
 | -------- | ----: |
@@ -106,3 +107,20 @@ df.groupby(['STATION'])[ 'TRAFFIC'].sum().nlargest(5)
 | 14 ST-UNION SQ    | 5,030,327|   
 
 
+what if we wanted to see the busiest times and days by station?
+
+```python
+df.groupby(['STATION', 'hourbin', 'DOF'])['delta_entry', 'delta_exit', 'TRAFFIC'].sum().nlargest(5, 'TRAFFIC')
+```
+this code groups the data by station as well as hour bin (four hour intervals) and day of week. We'll show the entries and exits but sort by total traffic. 
+
+			
+|STATION| hourbin| DOF	|	delta_entry	|delta_exit	|TRAFFIC|
+|--|--|--|--|--|--|
+|34 ST-PENN STA	|(16, 20]	|WED	276241|	344637|	620878|
+|||TUE	|268276	|348503|	616779|
+|||THU	258329	|339546|	597875|
+|||MON	256919|	329947|	586866|
+|||FRI	249860|	308534|	558394|
+
+not surprisingly, the busiest times are during the evening rush, on weekends, at Penn Station. 
