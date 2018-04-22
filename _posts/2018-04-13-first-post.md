@@ -10,7 +10,7 @@ NYC has made the turnstile data publicly available on the [MTA website](http://w
 
 ### Importing data from the web
 
-First we need to import the data into a pandas dataframe. My partner and wrote this function that takes the date (mm/dd/yyyy) and the number of weeks and returns a data frame:
+First we need to import the data into a pandas dataframe. My partner and I wrote this function that takes the date (mm/dd/yyyy) and the number of weeks and returns a data frame:
 
 ```python
 def combine_mta_data(start_date, number):
@@ -119,10 +119,10 @@ This code groups the data by station as well as hour bin (four hour intervals) a
 			
 |STATION| hourbin| DOF	|	delta_entry	|delta_exit	|TRAFFIC|
 |--|--|--|--|--|--|
-|34 ST-PENN STA	|(16, 20]	|WED|	276241|	344637|	620878|
-|||TUE	|268276	|348503|	616779|
-|||THU	|258329	|339546|	597875|
-|||MON|	256919|	329947|	586866|
-|||FRI|	249860|	308534|	558394|
+|34 ST-PENN STA	|(16, 20]	|WED|	276,241|	344,637|	620,878|
+|||TUE	|268,276	|348,503|	616,779|
+|||THU	|258,329	|339,546|	597,875|
+|||MON|	256,919|	329,947|	586,866|
+|||FRI|	249,860|	308,534|	558,394|
 
-Not surprisingly, the busiest times are during the evening rush, on weekends, at Penn Station. 
+Not surprisingly, the busiest times are during the evening rush, on weekdays, at Penn Station. 
