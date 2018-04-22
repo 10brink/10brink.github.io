@@ -36,7 +36,7 @@ df = combine_mta_data(start_date, 4)
 
 ### Cleaning the data
 
-If you look at the columns in the data frame (using `df.columns`), you'll notice that one of them has a lot of spaces in the name. We can easily remove this using the python function `.strip()`. while we're at it, let's remove any duplicate entries.
+If you look at the columns in the data frame (using `df.columns`), you'll notice that one of them has a lot of spaces in the name. We can easily remove this using the python function `.strip()`. While we're at it, let's remove any duplicate entries.
 ```python
 df = df.drop_duplicates()
 df.columns = df.columns.str.strip() 
