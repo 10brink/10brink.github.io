@@ -117,10 +117,10 @@ this code groups the data by station as well as hour bin (four hour intervals) a
 			
 |STATION| hourbin| DOF	|	delta_entry	|delta_exit	|TRAFFIC|
 |--|--|--|--|--|--|
-|34 ST-PENN STA	|(16, 20]	|WED	276241|	344637|	620878|
+|34 ST-PENN STA	|(16, 20]	|WED|	276241|	344637|	620878|
 |||TUE	|268276	|348503|	616779|
-|||THU	258329	|339546|	597875|
-|||MON	256919|	329947|	586866|
-|||FRI	249860|	308534|	558394|
+|||THU	|258329	|339546|	597875|
+|||MON|	256919|	329947|	586866|
+|||FRI|	249860|	308534|	558394|
 
 not surprisingly, the busiest times are during the evening rush, on weekends, at Penn Station. 
