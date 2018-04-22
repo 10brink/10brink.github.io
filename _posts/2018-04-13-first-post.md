@@ -61,7 +61,6 @@ df ['HOUR'] = [r.hour for r in df.TIMESTAMP] #hour of day
 df['hourbin'] = pd.cut(df['HOUR'], bins)
 
 ```
-
 We also recognized that numbers of entries in exits were cumulative counts, since we can see that they are in the millions and keep increasing. To get the counts for each interval, we can use the pandas function `.diff()`.
 
 For this we wrote another function, find_deltas, that creates two new columns from the differences in the entries and exits columns. Later we found that some of the turnstiles were counting down, and some reset to 0 at seemingly random times. To account for this we used the absolute value of the difference, and any values that were abnormally large we reset to 0 (since this is counting each individual turnstile, it is unlikely that one turnstile would have more than 10000 entries in four hours). We also set the value to 0 anytime the turnstile changed in the dataframe --taking the difference in values between two different turnstiles doesn't make sense.
@@ -98,12 +97,12 @@ Now that the tedius work of cleaning and managing the data is done, let's see wh
 df.groupby(['STATION'])[ 'TRAFFIC'].sum().nlargest(5)
 ```
 
-| STATION        | TRAFFIC   |
-| ------------- | ------: |
-| 34 ST-PENN STA | 7500052|
-| GRD CNTRL-42 ST| 6793625|   
-| 34 ST-HERALD SQ | 5960562   |   
-| 23 ST    | 5299998 |
-| 14 ST-UNION SQ    | 5030327|   
+| STATION  | TRAFFIC   |
+| -------- | ----: |
+| 34 ST-PENN STA | 7,500,052|
+| GRD CNTRL-42 ST| 6,793,625|   
+| 34 ST-HERALD SQ | 5,960,562   |   
+| 23 ST    | 5,299,998 |
+| 14 ST-UNION SQ    | 5,030,327|   
 
 
