@@ -5,7 +5,7 @@ published: true
 ---
 ![zillow](https://raw.githubusercontent.com/10brink/10brink.github.io/master/Zillow-logo.jpg)
 
-I wanted to see if I could predict housing values in my hometown of Ann Arbor MI, using data from Zillow.com. Though zillow already has a feature like that called Zestimate, I wanted to make my own. I wanted to create a model that used different atributes of a house (square footage, number of bedrooms and bathrooms, etc.) to predict the sale price. This could also be used to see how much your house value goes up if you build an addition or install another bathroom in your house.  
+I wanted to see if I could predict housing values in my hometown of Ann Arbor, Michigan, using data from Zillow.com. Though zillow already has a feature like that called Zestimate, I wanted to make my own. I wanted to create a model that used different attributes of a house (square footage, number of bedrooms and bathrooms, etc.) to predict the sale price. This could also be used to see how much your house value goes up if you build an addition or install another bathroom in your house.  
 
 ### Collecting Data
 
@@ -46,7 +46,7 @@ I explored using polynomial features as well as interactions, but those didn't s
 
 ### Model 
 
-The model that I choose to use is an ordinary least squares linear regression. To account for collinearity of variables (for example, you might expect number of bathrooms and bedrooms to rise as the overall sq footage rises), I used a method called Ridge Regularization. Ridge Regularization-- or L2 regularization-- puts a penalty on large coefficients (also known as Betas, β), without making the coeffecients zero. L1 regularization tends to "zero-out" some coeffecients in favor of others, I didn't want that. 
+The model that I choose to use is an ordinary least squares linear regression. To account for collinearity of variables (for example, you might expect number of bathrooms and bedrooms to rise as the overall sq footage rises), I used a method called Ridge Regularization. Ridge Regularization-- or L2 regularization-- puts a penalty on large coefficients (also known as Betas, β), without making the coefficients zero. L1 regularization tends to "zero-out" some coefficients in favor of others, I didn't want that. 
 
 Here's how my model did:
 
