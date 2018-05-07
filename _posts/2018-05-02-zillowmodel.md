@@ -70,4 +70,4 @@ Most surprising to me was how valuable a bathroom is! $26k seems like a lot. I s
 
 Based on this model, here is the formula for computing a house price in Ann Arbor:
 
-Price in dollars = 379,428 - 12.1x(year) +3,157x(#bedrooms) + 26,818x(#bathrooms) + 0.29x(lot size) + 49 x (square footage)
+Price in dollars = 379,428 - 12.1x(year) +3,157x(#bedrooms) + 26,818x(#bathrooms) + 0.29x(lot size in sq ft.) + 49 x (house square footage)
