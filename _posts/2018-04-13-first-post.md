@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Metis Bootcamp
+title: Using Pandas
 published: true
 ---
 
