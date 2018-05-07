@@ -5,13 +5,13 @@ published: true
 ---
 ![zillow](https://raw.githubusercontent.com/10brink/10brink.github.io/master/Zillow-logo.jpg)
 
-I wanted to see if I could predict housing values in my hometown of Ann Arbor, Michigan, using data from Zillow.com. Though zillow already has a feature like that called Zestimate, I wanted to make my own. I wanted to create a model that used different attributes of a house (square footage, number of bedrooms and bathrooms, etc.) to predict the sale price. This could also be used to see how much your house value goes up if you build an addition or install another bathroom in your house.  
+I wanted to see if I could predict house values in my hometown of Ann Arbor, Michigan, using data from Zillow.com. Though Zillow already has a feature like that called Zestimate, I wanted to make my own. I wanted to create a model that used different attributes of a house (square footage, number of bedrooms and bathrooms, etc.) to predict the sale price. This could also be used to see how much your house value goes up if you build an addition or install another bathroom in your house.  
 
 ### Collecting Data
 
-Zillow has a nice api, however, to make a call (ie, get info from it) you must have the exact address of the listing. There is no way to search the api as you can on the website. Since my 'target' (what I'm trying to predict) is sale prices, I searched the website for recently sold houses, using selenium and beautiful soup to scrape the addresses of 1000 recently sold houses in Ann Arbor. 
+Zillow has a nice API, however, to make a call (ie, get info from it) you must have the exact address of the listing. There is no way to search the API as you can on the website. Since my 'target' (what I'm trying to predict) is sale prices, I searched the website for recently sold houses, using selenium and beautiful soup to scrape the addresses of 1000 recently sold houses in Ann Arbor. 
 
-Now that I had a list of addresses, I could plug those into the api to get the data that I needed for my model. 
+Now that I had a list of addresses, I could plug those into the API to get the data that I needed for my model. 
 
 ### Exploring the Data
 
