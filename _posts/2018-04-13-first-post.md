@@ -1,12 +1,13 @@
 ---
 layout: post
 title: Metis Bootcamp
+published: true
 ---
 
 
 Hi, I'm Nick, an aspiring data scientist, and I will be blogging about my experience at the Metis data science bootcamp in Chicago. In the first week, we downloaded, cleaned and analyzed NYC subway data to see what patterns can be found in the data. 
 
-NYC has made the turnstile data publicly available on the [MTA website](http://web.mta.info/developers/turnstile.html). Unfortunately, the data is not exactly clean or user friendly, you can see it is in a .txt csv (comma seperated values) file. We quickly learned that a large part of data science work is making sure that the data is clean and in a usable format. I will show you how I did this using python and pandas. Pandas (from the term panel data) is a library for python that provides data structures and makes working with relational data easy. 
+NYC has made the turnstile data publicly available on the [MTA website](http://web.mta.info/developers/turnstile.html). Unfortunately, the data is not exactly clean or user friendly, you can see it is in a .txt csv (comma separated values) file. We quickly learned that a large part of data science work is making sure that the data is clean and in a usable format. I will show you how I did this using python and pandas. Pandas (from the term panel data) is a library for python that provides data structures and makes working with relational data easy. 
 
 ### Importing data from the web
 
@@ -41,7 +42,7 @@ If you look at the columns in the data frame (using `df.columns`), you'll notice
 df = df.drop_duplicates()
 df.columns = df.columns.str.strip() 
 ```
-You might also notice that there are two seperate columns for date and time of day. Let's go ahead and combine those into one column, I named it 'TIMESTAMP' (make sure you import datetime first).
+You might also notice that there are two separate columns for date and time of day. Let's go ahead and combine those into one column, I named it 'TIMESTAMP' (make sure you import datetime first).
 
 ```python
 df['TIMESTAMP'] = pd.to_datetime((df.DATE + ' ' + df.TIME), format='%m/%d/%Y %H:%M:%S')
@@ -93,7 +94,7 @@ df['TRAFFIC']= df['delta_entry']+df['delta_exit']
 
 ### Data Exploration
 
-Now that the tedius work of cleaning and managing the data is done, let's see what the five busiest stations were by total traffic:
+Now that the tedious work of cleaning and managing the data is done, let's see what the five busiest stations were by total traffic:
 
 ```python
 df.groupby(['STATION'])[ 'TRAFFIC'].sum().nlargest(5)
@@ -125,4 +126,4 @@ This code groups the data by station as well as hour bin (four hour intervals) a
 |||MON|	256,919|	329,947|	586,866|
 |||FRI|	249,860|	308,534|	558,394|
 
-Not surprisingly, the busiest times are during the evening rush, on weekdays, at Penn Station. 
+Not surprisingly, the busiest times are during the evening rush, on weekdays, at Penn Station.
