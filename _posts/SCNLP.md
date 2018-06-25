@@ -43,3 +43,8 @@ Here are the results of case topics over the years:
 ![topics graph](https://raw.githubusercontent.com/10brink/10brink.github.io/master/sctopics.png)
 
 I found it interesting that there were several cases related to native americans in the 1960's but virtually none after that. 
+
+
+Also interesting is that the Supreme court has taken a lighter caseload since the 1990's, here is a graph of just that time period:
+
+![topics since 1990](https://raw.githubusercontent.com/10brink/10brink.github.io/master/casessince1990.png)
