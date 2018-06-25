@@ -4,8 +4,7 @@ title: Using Natural Language Processing to Topic Model Supreme Court Cases
 published: true
 ---
 
-
-For this project I used Natural Language Processing and unsupervised learning to preform topic modeling on supreme court
+The Supreme Court is the highest court in the United States. The nine justices decide which cases to hear and make judgements on. I used Natural Language Processing and unsupervised learning to preform topic modeling on the Supreme Court
 cases/opinions.
 
 The tools I used were NLTK, sklearn and spacey, as well as beautiful soup for webscraping. I scraped the site
