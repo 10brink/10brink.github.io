@@ -6,7 +6,9 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+  background:
+    linear-gradient(180deg, rgba(5, 15, 20, 0.7) 0%, rgba(10, 25, 30, 0.75) 100%),
+    url('img/pichu.jpg') center/cover no-repeat fixed;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -21,40 +23,61 @@ body {
   text-align: center;
 }
 
+.back-link {
+  display: inline-block;
+  color: #d4a574;
+  text-decoration: none;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+}
+
+.back-link:hover {
+  color: #e8c49a;
+  text-shadow: 0 0 12px rgba(212, 165, 116, 0.5);
+}
+
 .profile {
   margin-bottom: 2.5rem;
 }
 
+.profile-small {
+  margin-bottom: 1.5rem;
+}
+
 .avatar {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 0 auto 1.25rem;
-  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  object-fit: cover;
+  margin: 0 auto 1.5rem;
+  border: 2px solid rgba(212, 165, 116, 0.4);
+  box-shadow:
+    0 0 30px rgba(212, 165, 116, 0.15),
+    0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
-  font-size: 1.75rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 300;
   margin-bottom: 0.5rem;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .tagline {
-  color: #a0a0a0;
-  font-size: 1rem;
+  color: #d4a574;
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 .links {
   display: flex;
   flex-direction: column;
-  gap: 0.875rem;
+  gap: 0.75rem;
 }
 
 .link-card {
@@ -62,19 +85,22 @@ h1 {
   align-items: center;
   gap: 0.875rem;
   padding: 1rem 1.25rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  background: rgba(20, 20, 25, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
   color: #fff;
   text-decoration: none;
-  font-weight: 500;
-  transition: all 0.2s ease;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
 }
 
 .link-card:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(212, 165, 116, 0.12);
+  border-color: rgba(212, 165, 116, 0.4);
   transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(212, 165, 116, 0.1);
 }
 
 .link-icon {
@@ -83,11 +109,22 @@ h1 {
   justify-content: center;
   width: 24px;
   height: 24px;
-  color: #a0a0a0;
+  color: #c9a67a;
+  transition: all 0.3s ease;
 }
 
 .link-card:hover .link-icon {
-  color: #fff;
+  color: #e8c49a;
+  filter: drop-shadow(0 0 6px rgba(212, 165, 116, 0.5));
+}
+
+.link-card-secondary {
+  background: rgba(20, 20, 25, 0.4);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.link-card-secondary:hover {
+  background: rgba(212, 165, 116, 0.08);
 }
 
 @media (max-width: 480px) {
@@ -100,8 +137,7 @@ h1 {
   }
 
   .avatar {
-    width: 80px;
-    height: 80px;
-    font-size: 1.5rem;
+    width: 110px;
+    height: 110px;
   }
 }
