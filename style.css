@@ -99,8 +99,8 @@ h1 {
 .link-card:hover {
   background: rgba(212, 165, 116, 0.12);
   border-color: rgba(212, 165, 116, 0.4);
-  transform: translateY(-2px);
   box-shadow: 0 4px 20px rgba(212, 165, 116, 0.1);
+  transform: translateY(-2px);
 }
 
 .link-icon {
@@ -110,12 +110,18 @@ h1 {
   width: 24px;
   height: 24px;
   color: #c9a67a;
-  transition: all 0.3s ease;
 }
 
 .link-card:hover .link-icon {
   color: #e8c49a;
-  filter: drop-shadow(0 0 6px rgba(212, 165, 116, 0.5));
+}
+
+.icon-airbnb {
+  color: #c9a67a;
+}
+
+.link-card:hover .icon-airbnb {
+  color: #e8c49a;
 }
 
 .link-card-secondary {
@@ -125,6 +131,211 @@ h1 {
 
 .link-card-secondary:hover {
   background: rgba(212, 165, 116, 0.08);
+}
+
+.badge {
+  margin-left: auto;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  background: rgba(212, 165, 116, 0.2);
+  border: 1px solid rgba(212, 165, 116, 0.3);
+  border-radius: 4px;
+  color: #d4a574;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.container-wide {
+  max-width: 560px;
+}
+
+.section-title {
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #d4a574;
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.blog-section {
+  text-align: left;
+}
+
+.blog-post {
+  background: rgba(20, 20, 25, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(8px);
+}
+
+.post-date {
+  font-size: 0.75rem;
+  color: #888;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.post-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0.5rem 0;
+  letter-spacing: 0.02em;
+}
+
+.post-excerpt {
+  font-size: 0.9rem;
+  color: #aaa;
+  line-height: 1.5;
+}
+
+.password-section {
+  background: rgba(20, 20, 25, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+}
+
+.password-message {
+  color: #aaa;
+  margin-bottom: 1.25rem;
+}
+
+.password-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.password-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.password-input:focus {
+  outline: none;
+  border-color: rgba(212, 165, 116, 0.5);
+}
+
+.password-input::placeholder {
+  color: #666;
+}
+
+.password-submit {
+  padding: 0.75rem 1.25rem;
+  background: rgba(212, 165, 116, 0.2);
+  border: 1px solid rgba(212, 165, 116, 0.4);
+  border-radius: 6px;
+  color: #d4a574;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.password-submit:hover {
+  background: rgba(212, 165, 116, 0.3);
+  border-color: rgba(212, 165, 116, 0.6);
+}
+
+.error-message {
+  color: #e57373;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+  min-height: 1.2em;
+}
+
+.album-description {
+  color: #aaa;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.photo-content {
+  text-align: left;
+}
+
+.photo-year {
+  margin-bottom: 2.5rem;
+}
+
+.year-label {
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #d4a574;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2.5rem;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.lightbox-close:hover {
+  opacity: 1;
 }
 
 @media (max-width: 480px) {
@@ -139,5 +350,13 @@ h1 {
   .avatar {
     width: 110px;
     height: 110px;
+  }
+
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .photo-grid img {
+    height: 100px;
   }
 }
