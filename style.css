@@ -264,6 +264,45 @@ h1 {
   text-align: left;
 }
 
+.family-photo-link {
+  display: block;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  text-decoration: none;
+}
+
+.family-photo-preview {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.family-photo-link:hover .family-photo-preview {
+  transform: scale(1.05);
+}
+
+.family-photo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.family-photo-text {
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
 .photo-year {
   margin-bottom: 2.5rem;
 }
