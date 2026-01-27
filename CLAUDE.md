@@ -36,3 +36,5 @@ This is Nick Ten Brink's personal website, built entirely with Claude Code.
 ## Documentation
 
 For every project, write a detailed `FORNICK.md` that explains the project in plain language: technical architecture, codebase structure, technologies used, decision rationale, and lessons learned (bugs, pitfalls, best practices). Make it engaging and memorable with analogies and anecdotes.
+
+Include a comment at the top of every file explaining concisely what it does.
