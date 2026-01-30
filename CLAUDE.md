@@ -1,17 +1,21 @@
 # CLAUDE.md
 
-This is Nick Ten Brink's personal website, built entirely with Claude Code.
+Nick Ten Brink's projects, built entirely with Claude Code.
 
 ## Project Structure
 
-- `index.html` - Main landing page (Linktree-style hub)
-- `socials.html` - Social media links and music
-- `personal.html` - Personal page
-- `family-photos.html` - Family photo album
-- `projects.html` - Projects showcase
-- `fireworks/` - Fireworks animation project
-- `style.css` - Main stylesheet (shared across pages)
-- `img/` - Images directory
+- `website/` - Personal website (Linktree-style hub)
+  - `index.html` - Main landing page
+  - `socials.html` - Social media links and music
+  - `personal.html` - Personal page
+  - `family-photos.html` - Family photo album
+  - `projects.html` - Projects showcase
+  - `fireworks/` - Fireworks animation project
+  - `style.css` - Main stylesheet (shared across pages)
+  - `img/` - Images directory
+- `fitness/` - Fitness tracking tools
+- `games/` - Games
+- `workoutlog/` - Workout logging app
 
 ## Tech Stack
 
@@ -22,7 +26,7 @@ This is Nick Ten Brink's personal website, built entirely with Claude Code.
 ## Design System
 
 - Dark theme with warm accent colors (#d4a574 gold/tan)
-- Background: Dark gradient overlay on `img/pichu.jpg`
+- Background: Dark gradient overlay on `website/img/pichu.jpg`
 - Card-based link layout with hover effects
 - Mobile-responsive design
 
